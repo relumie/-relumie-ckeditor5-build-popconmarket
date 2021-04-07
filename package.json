@@ -1,6 +1,6 @@
 {
   "name": "@relumie/ckeditor5-build-popconmarket",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "A custom build based on the classic editor build of CKEditor5.",
   "keywords": [],
   "main": "./build/ckeditor.js",
