@@ -30,7 +30,7 @@ import Link from '@ckeditor/ckeditor5-link/src/link';
 // import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-// import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
+import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 // import Table from '@ckeditor/ckeditor5-table/src/table';
 // import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
@@ -65,7 +65,7 @@ ClassicEditor.builtinPlugins = [
 	// List,
 	MediaEmbed,
 	Paragraph,
-	// PasteFromOffice,
+	PasteFromOffice,
 	// Table,
 	// TableToolbar,
 	TextTransformation
@@ -75,7 +75,7 @@ ClassicEditor.builtinPlugins = [
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
-			'heading',
+			// 'heading',
 			'fontSize',
 			'|',
 			'bold',
@@ -109,6 +109,10 @@ ClassicEditor.defaultConfig = {
 		styles: [
 			'full', 'alignCenter'
 		]
+	},
+
+	mediaEmbed: {
+		previewsInData: true
 	},
 
 	// table: {

@@ -1,8 +1,14 @@
 {
   "name": "@relumie/ckeditor5-build-popconmarket",
-  "version": "0.0.5",
+  "version": "0.1.1",
   "description": "A custom build based on the classic editor build of CKEditor5.",
-  "keywords": [],
+  "keywords": [
+    "ckeditor5-build",
+    "ckeditor",
+    "ckeditor5",
+    "ckeditor 5",
+    "wysiwyg"
+  ],
   "main": "./build/ckeditor.js",
   "files": [
     "build"
@@ -22,6 +28,7 @@
     "@ckeditor/ckeditor5-link": "^27.0.0",
     "@ckeditor/ckeditor5-media-embed": "^27.0.0",
     "@ckeditor/ckeditor5-paragraph": "^27.0.0",
+    "@ckeditor/ckeditor5-paste-from-office": "^27.1.0",
     "@ckeditor/ckeditor5-typing": "^27.0.0"
   },
   "devDependencies": {

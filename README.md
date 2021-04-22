@@ -1,6 +1,8 @@
 @relumie/ckeditor5-build-popconmarket
 =================
 
+Warning: This package is only for private uses. So its settings could change anytime.
+
 This package is a custom-build based on [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-build-classic)
 
 Use like [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-build-classic)
@@ -17,12 +19,13 @@ Use like [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5
 - No CloudService
 - No EasyImage
 - No CKFinder
-- No PasteFromOffice
 - No Redo/Undo (Not perfectly works)
-&nbsp;
 - Image resize (_added on v.0.0.2_)
-&nbsp;
 - Image alignment (_added on v.0.0.5_)
+- Add some iframe previews of mediaEmbeds in data (CKEditor default supported)(_added on v.0.0.6_)
+- No heading (_added on v.0.0.8_)
+- Modify @ckeditor/ckeditor5-clipboard(Paste multiple-line-breaks as they are) (_readme only. added on v.0.0.9_)
+- Add PasteFromOffice again(_added on v.0.1.1_)
 
 &nbsp;
 &nbsp;
@@ -64,4 +67,28 @@ Here are simple example codes.
   margin-inline-end: 0;
 }
 ```
+
+
+&nbsp;
+&nbsp;
+##### ABOUT PASTE TEXT
+You may feel strange when paste some text with multiple-line-breaks. The module `@ckeditor/ckeditor5-clipboard` merge multiple-line-breaks when paste. You can remove this function by modifying a file `node_modules/@ckeditor/ckeditor5-clipboard/src/utils/plaintexttohtml.js` in your react-app like this.
+```
+<FROM>
+...
+// Creates a paragraph for each double line break.
+.replace( /\r?\n\r?\n/g, '</p><p>' )
+// Creates a line break for each single line break.
+.replace( /\r?\n/g, '<br>' )
+...
+
+<TO>
+...
+// Creates a paragraph for each double line break.
+// .replace( /\r?\n\r?\n/g, '</p><p>' )
+// Creates a line break for each single line break.
+.replace( /\r?\n/g, '</p><p>' )
+...
+```
+
 
