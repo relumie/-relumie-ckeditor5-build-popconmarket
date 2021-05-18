@@ -1,5 +1,4 @@
-@relumie/ckeditor5-build-popconmarket
-=================
+# @relumie/ckeditor5-build-popconmarket
 
 Warning: This package is only for private uses. So its settings could change anytime.
 
@@ -8,6 +7,7 @@ This package is a custom-build based on [CKEditor 5 classic editor build](https:
 Use like [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-build-classic)
 
 **Setting:**
+
 - Korean interface
 - Font size
 - Underline, Strikethrough
@@ -26,13 +26,43 @@ Use like [CKEditor 5 classic editor build](https://github.com/ckeditor/ckeditor5
 - No heading (_added on v.0.0.8_)
 - Modify @ckeditor/ckeditor5-clipboard(Paste multiple-line-breaks as they are) (_readme only. added on v.0.0.9_)
 - Add PasteFromOffice again(_added on v.0.1.1_)
+- Add CoverEditor(_added on v.0.1.2_)
 
 &nbsp;
 &nbsp;
-##### ABOUT IMAGE UPLOADER
+
+## MIGRATION from 0.1.1 to 0.1.2~
+
+- Minor changes on usage.
+
+``` javascript
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+
+// >>>>>> HERE
+// import ClassicEditor from '@relumie/ckeditor5-build-popconmarket';
+import { ClassicEditor } from '@relumie/ckeditor5-build-popconmarket';
+
+<CKEditor
+  editor={ ClassicEditor }
+  //...
+/>
+```
+
+- Now you can use CoverEditor instead of ClassEditor. It has less tools. (No video, No link)
+
+``` javascript
+import { CoverEditor } from '@relumie/ckeditor5-build-popconmarket';
+```
+
+&nbsp;
+&nbsp;
+
+## ABOUT IMAGE UPLOADER
+
 You can make your own custom image uploader with [this official documentation](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/upload-adapter.html).
 I use this build with [@ckeditor/ckeditor5-react](https://www.npmjs.com/package/@ckeditor/ckeditor5-react) and example codes are like this.
-```
+
+``` javascript
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@relumie/ckeditor5-build-popconmarket';
 import YourOwnImageUploadAdapterPlugin from '../../rich_editor/your_own_image_upload_adapter_plugin';
@@ -43,18 +73,20 @@ import YourOwnImageUploadAdapterPlugin from '../../rich_editor/your_own_image_up
   config={ {
     extraPlugins: [
       YourOwnImageUploadAdapterPlugin //** YOUR OWN IMAGE UPLOAD ADAPTER PLUGIN
-    ] 
+    ]
   } }  
 />
 ```
 
+&nbsp;
+&nbsp;
 
-&nbsp;
-&nbsp;
-##### ABOUT IMAGE ALIGNMENT
+## ABOUT IMAGE ALIGNMENT
+
 With this build, full and alignCenter alignment are available. CKEditor5's full alignment means full-line-center. But you can change it with some style changes.
 Here are simple example codes.
-```
+
+``` javascript
 // any_style_file.scss
 /* default image ('full') to full-left align */
 .ck-content .image:not(.image-style-align-center) {
@@ -68,12 +100,14 @@ Here are simple example codes.
 }
 ```
 
+&nbsp;
+&nbsp;
 
-&nbsp;
-&nbsp;
-##### ABOUT PASTE TEXT
+## ABOUT PASTE TEXT
+
 You may feel strange when paste some text with multiple-line-breaks. The module `@ckeditor/ckeditor5-clipboard` merge multiple-line-breaks when paste. You can remove this function by modifying a file `node_modules/@ckeditor/ckeditor5-clipboard/src/utils/plaintexttohtml.js` in your react-app like this.
-```
+
+``` javascript
 <FROM>
 ...
 // Creates a paragraph for each double line break.
@@ -90,5 +124,3 @@ You may feel strange when paste some text with multiple-line-breaks. The module 
 .replace( /\r?\n/g, '</p><p>' )
 ...
 ```
-
-

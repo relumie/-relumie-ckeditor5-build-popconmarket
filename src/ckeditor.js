@@ -9,7 +9,10 @@ import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classicedi
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+// import FontFamily from '@ckeditor/ckeditor5-font/src/fontFamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+// import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor';
+// import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
@@ -36,14 +39,18 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 // import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+class ClassicEditor extends ClassicEditorBase {}
+class CoverEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
+	// FontFamily,
 	FontSize,
+	// FontColor,
+	// FontBackgroundColor,
 	Bold,
 	Italic,
 	Underline,
@@ -76,7 +83,10 @@ ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			// 'heading',
+			//'fontFamily',
 			'fontSize',
+			//'fontColor',
+			//'fontBackgroundColor',
 			'|',
 			'bold',
 			'italic',
@@ -98,6 +108,40 @@ ClassicEditor.defaultConfig = {
 			// 'redo'
 		]
 	},
+
+	// fontFamily: {
+	// 	options: [
+	// 			'Noto Sans KR',
+	// 			'Segoe UI',
+	// 			'Batang',
+	// 			'Gungsuh',
+	// 			'Ubuntu, Arial, sans-serif',
+	// 			'Ubuntu Mono, Courier New, Courier, monospace'
+	// 	]
+	// },
+
+	fontSize: {
+		options: [
+			'tiny',
+			'small',
+			'default',
+			'big',
+			'huge'
+		]
+	},
+
+
+	// fontColor: {
+	// 	// Display 6 columns in the color grid.
+	// 	columns: 5,
+
+	// 	// And 12 document colors (2 rows of them).
+	// 	documentColors: 10,
+	// },
+	// fontBackgroundColor: {
+	// 	// Remove the "Document colors" section.
+	// 	documentColors: 4,
+	// },
 	
 	image: {
 		toolbar: [
@@ -124,4 +168,139 @@ ClassicEditor.defaultConfig = {
 	// },
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'ko'
+};
+
+
+
+
+
+CoverEditor.builtinPlugins = [
+	Essentials,
+	UploadAdapter,
+	Autoformat,
+	// FontFamily,
+	FontSize,
+	// FontColor,
+	// FontBackgroundColor,
+	Bold,
+	Italic,
+	Underline,
+	Strikethrough,
+	// BlockQuote,
+	// CKFinder,
+	// CloudServices,
+	// EasyImage,
+	// Heading,
+	Image,
+	// ImageCaption,
+	ImageResize,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload,
+	Indent,
+	Alignment,
+	// Link,
+	// List,
+	// MediaEmbed,
+	Paragraph,
+	PasteFromOffice,
+	// Table,
+	// TableToolbar,
+	TextTransformation
+];
+
+// Editor configuration.
+CoverEditor.defaultConfig = {
+	toolbar: {
+		items: [
+			// 'heading',
+			// 'fontFamily',
+			'fontSize',
+			// 'fontColor',
+			// 'fontBackgroundColor',
+			'|',
+			'bold',
+			'italic',
+			'underline',
+			'strikethrough',
+			'|',
+			'alignment:justify', 
+			'alignment:left', 
+			'alignment:center',
+			'alignment:right', 
+			'|',
+			// 'blockQuote',
+			// 'link',
+			'uploadImage',
+			// 'insertTable',
+			// 'mediaEmbed',
+			// '|',
+			// 'undo',
+			// 'redo'
+		]
+	},
+
+	// fontFamily: {
+	// 	options: [
+	// 			'Noto Sans KR',
+	// 			'Segoe UI',
+	// 			'Batang',
+	// 			'Gungsuh',
+	// 			'Ubuntu, Arial, sans-serif',
+	// 			'Ubuntu Mono, Courier New, Courier, monospace'
+	// 	]
+	// },
+
+	// fontSize: {
+	// 	options: [
+	// 		'tiny',
+	// 		'small',
+	// 		'default',
+	// 		'big',
+	// 		'huge'
+	// 	]
+	// },
+
+
+	// fontColor: {
+	// 	// Display 6 columns in the color grid.
+	// 	columns: 5,
+
+	// 	// And 12 document colors (2 rows of them).
+	// 	documentColors: 10,
+	// },
+	// fontBackgroundColor: {
+	// 	// Remove the "Document colors" section.
+	// 	documentColors: 4,
+	// },
+	
+	image: {
+		toolbar: [
+			'imageStyle:full',
+			'imageStyle:alignCenter',
+			// '|',
+			// 'imageTextAlternative'
+		],
+		styles: [
+			'full', 'alignCenter'
+		]
+	},
+
+	// mediaEmbed: {
+	// 	previewsInData: true
+	// },
+
+	// table: {
+	// 	contentToolbar: [
+	// 		'tableColumn',
+	// 		'tableRow',
+	// 		'mergeTableCells'
+	// 	]
+	// },
+	// This value must be kept in sync with the language defined in webpack.config.js.
+	language: 'ko'
+};
+
+export default {
+	ClassicEditor, CoverEditor
 };
